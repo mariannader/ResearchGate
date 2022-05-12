@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "searchUser";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+<h2>User Search</h2>
+
+<h3>Search For a User</h3>
+@using (Html.BeginForm("SearchForUser", "Admin", FormMethod.Get))
+{
+    @*<b>Search by:</b>@Html.RadioButton("search", "Name")<text> Name</text>
+        @Html.RadioButton("search", "Gender")<text>Gender</text><br />
+        @Html.TextBox("Search");*@
+    <input type="text" name="search" placeholder="Entername" />
+    <input type="submit" value="Search" />
+}

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ResearchGate.Models.tbl_paper>
+
+@{
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>search for a paper</h2>
+@using (Html.BeginForm("SearchForPaper", "Papers", FormMethod.Get))
+{
+    @*<b>Search by:</b>@Html.RadioButton("search", "Name")<text> Name</text>
+        @Html.RadioButton("search", "Gender")<text>Gender</text><br />
+        @Html.TextBox("Search");*@
+    <input type="text" name="search" placeholder="Entername" />
+    <input type="submit" value="Search" />
+}
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.p_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_file)
+        </th>
+
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a>
+                    @Html.DisplayFor(modelItem => item.p_name)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_file)
+            </td>
+
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.u_id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.u_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.u_id })
+                </td>*@
+        </tr>
+    }
+</table>
+
+
+
+

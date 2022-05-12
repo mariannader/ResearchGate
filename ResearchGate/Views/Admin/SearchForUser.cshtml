@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ResearchGate.Models.tbl_user>
+@{
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<h2>User Search</h2>
+<h3>Search For User</h3>
+@using (Html.BeginForm("SearchForUser", "Admin", FormMethod.Get))
+{
+    @*<b>Search by:</b>@Html.RadioButton("search", "Name")<text> Name</text>
+        @Html.RadioButton("search", "Gender")<text>Gender</text><br />
+        @Html.TextBox("Search");*@
+    <input type="text" name="search" placeholder="Entername" />
+    <input type="submit" value="Search" />
+}
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @*Html.DisplayNameFor(model => model.p_name)*@User Name
+            @*@Html.DisplayNameFor(model => model.u_name)*@
+        </th>
+        <th>
+            @*Html.DisplayNameFor(model => model.u_email)*@ User Email
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.u_password)
+            </th>*@
+        <!--<th>-->
+            @*@Html.DisplayNameFor(model => model.u_image)*@ <!--User Image
+        </th>-->
+        <th>
+            @*@Html.DisplayNameFor(model => model.u_contact)*@ User Phone
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.u_position)*@ User Department
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.u_name)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.u_email)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.u_password)
+        </td>*@
+    @*<td>
+            @Html.DisplayFor(modelItem => item.u_image)
+        </td>*@
+    @*<td>
+        @if (item.u_image != null)
+        {
+            <div class="image-size">
+                <img src="~/images/upload/2094763278profile.jpg" alt="error" class="img-responsive image-center" width="50" height="50" />
+            </div>
+        }
+        else
+        {
+            <img src="~/images/upload/2094763278profile.jpg" width="50" height="50" />
+        }
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.u_contact)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.u_position)
+    </td>
+    <td>
+        @*//linkText, actionName, controllerName, routeValues, htmlAttributes*@
+        @Html.ActionLink("User Profile", "UserDetails", "Papers", new { id = item.u_id , name = item.u_name }, null)
+
+        @*@Html.ActionLink("Profile", "Papers", "Index", new { id = item.u_id }) |*@
+    </td>
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.u_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.u_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.u_id })
+        </td>*@
+</tr>
+    }
+</table>
+
+
+
+
+
+
+

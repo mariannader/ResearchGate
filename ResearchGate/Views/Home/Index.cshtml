@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Research Gate</h1>
+    <p class="lead">Research Gate is a free web application for Researchs.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Login</h2>
+        <p>
+            Research Gate gives you a powerful
+        </p>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Login", "login", "Admin")</li>
+            
+        </ul>
+            @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+    </div>
+    <div class="col-md-4">
+        <h2>Sign Up Free</h2>
+        <p>Research Gate is a free </p>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Sign Up", "SignUp", "Admin")</li>
+        </ul>
+            @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+    </div>
+    
+</div>
